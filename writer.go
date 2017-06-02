@@ -213,6 +213,8 @@ func (p *MasterPlaylist) Encode() *bytes.Buffer {
 				p.buf.WriteString(pl.Name)
 				p.buf.WriteRune('"')
 			}
+			p.buf.WriteString(",RENDITION-ID=")
+			p.buf.WriteString(strconv.FormatUint(uint64(pl.RenditionId), 10))
 			p.buf.WriteRune('\n')
 			p.buf.WriteString(pl.URI)
 			if p.Args != "" {

@@ -278,6 +278,13 @@ func decodeLineOfMasterPlaylist(p *MasterPlaylist, state *decodingState, line st
 					return err
 				}
 				state.variant.ProgramId = uint32(val)
+			case "RENDITION-ID":
+				var val int
+				val, err = strconv.Atoi(v)
+				if strict && err != nil {
+					return err
+				}
+				state.variant.RenditionId = uint32(val)
 			case "BANDWIDTH":
 				var val int
 				val, err = strconv.Atoi(v)
